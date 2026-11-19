@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-cream text-ink font-sans antialiased; }
+  :focus-visible { @apply outline outline-2 outline-offset-2 outline-gold; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+  }
+}
+
+@layer components {
+  /* Striped placeholder — swap for <Image> once real photography is ready */
+  .ph {
+    @apply relative border border-white/10 bg-panel;
+    background-image: repeating-linear-gradient(135deg, rgba(255,255,255,0.03) 0 14px, transparent 14px 28px);
+  }
+  .ph-label {
+    @apply absolute bottom-3 left-4 text-[10px] uppercase tracking-[0.18em] text-white/60;
+  }
+  .eyebrow { @apply text-[11px] font-medium uppercase tracking-[0.22em] text-gold; }
+  .h-display { @apply font-display font-light leading-[1.05] tracking-tight; }
+  .btn { @apply inline-flex items-center justify-center px-5 py-3 text-[13px] font-semibold transition-colors; }
+  .btn-gold { @apply btn bg-gold text-ink hover:bg-gold-light; }
+  .btn-ink { @apply btn bg-ink text-white hover:bg-black; }
+  .btn-outline { @apply btn border border-white/30 text-white hover:bg-white/10; }
+  .field { @apply w-full border border-[#d9d0c2] bg-[#fffdf9] px-3.5 py-3 text-sm text-ink placeholder:text-ink/40; }
+  .label { @apply mb-1.5 block text-[11px] font-medium uppercase tracking-wider text-ink/80; }
+}
